@@ -1,2 +1,171 @@
-# MyLibDynamicCheckBox
- Simple way to use Dynamic CheckBox
+| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example2.jpg" width="300"/> |
+|:---|:---|
+
+<h1 align="center">
+  MyLibDialogSearchView - Easy Drop Down
+</h1>
+
+<div align="center">
+    <a><img src="https://img.shields.io/badge/Version-1.0.0-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
+    <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
+    <br>
+    <p>Simple way to select Item Single or Multi</p>
+</div>
+
+---
+
+### Feature List
+- [x] [Dynamic CheckBox](#DynamicCheckBox)
+
+---
+
+### Tech stack and 3rd library
+- Material.io ([docs](https://material.io/develop/android/docs/getting-started))
+
+---
+
+## Download
+Minimum Android SDK Version 21
+
+#### Gradle
+**Step 1.** add maven `jitpack.io` to your `build.gradle` (Project) :
+```gradle
+allprojects {
+  repositories {
+    google()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+  }
+}
+```
+
+**Step 2.** add dependensi to your `build.gradle` (Module) :
+```gradle
+dependencies {
+  implementation 'com.github.gzeinnumer:MyLibDynamicCheckBox:versi'
+  implementation 'com.google.android.material:material:1.2.0'
+}
+```
+
+---
+
+**First Step**. Use `MaterialComponents` in your style :
+
+```xml
+<style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+</style>
+```
+
+---
+
+### DynamicCheckBox
+
+- Widget on `xml`
+```xml
+    <com.gzeinnumer.mylibdynamiccheckbox.DynamicCheckBox
+        android:id="@+id/dc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:style="@style/checkBoxStyle"/>
+```
+
+if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on view, and make style on your `res->value`
+```xml
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="checkBoxStyle" parent="Base.Theme.AppCompat">
+        <item name="android:textColor">#FFE500</item>
+    </style>
+</resources>
+```
+
+- **Content Item** there is 2 type of is that you can sent to this `CheckBox`.
+
+**Type 1**
+```java
+DynamicCheckBox dynamicCheckBox = findViewById(R.id.dc);
+
+ArrayList<String> listString = new ArrayList<String>();
+listString.add("Satu");
+listString.add("Dua");
+listString.add("Tiga");
+listString.add("Empat");
+
+dynamicCheckBox.setItemList(listString).setOnCheckedChangeListener(new DynamicCheckBox.OnCheckedChangeListenerObject<String>() {
+    @Override
+    public void onCheckedChanged(ArrayList<String> items) {
+        for (int i=0; i<items.size(); i++){
+            Log.d(TAG, "onCheckedChanged: "+items.get(i));
+        }
+    }
+
+    @Override
+    public void onCheckedShow(String clickedValue) {
+        Log.d(TAG, "onCheckedShow: "+clickedValue);
+    }
+});
+```
+**Type 2** for this type you should override function `toString()` in your `model pojo`
+```java
+public class ExampleModel {
+
+    private int id;
+    private String name;
+    private String address;
+
+    //constructor
+
+    //getter
+    //setter
+
+    @Override
+    public String toString() {
+        return "ExampleModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+}
+```
+Use your own model. And dont forget to declare your `model pojo` `onCallBack` example `DynamicCheckBox.OnCheckedChangeListener<ExampleModel>`
+```java
+DynamicCheckBox dynamicCheckBox = findViewById(R.id.dc);
+
+ArrayList<ExampleModel> listObject = new ArrayList<>();
+listObject.add(new ExampleModel(1, "Zein", "Balbar"));
+listObject.add(new ExampleModel(2, "Zein2", "Balbar2"));
+listObject.add(new ExampleModel(3, "Zein3", "Balbar3"));
+listObject.add(new ExampleModel(4, "Zein4", "Balbar4"));
+
+dynamicCheckBox.setItemList(listObject).setOnCheckedChangeListener(new DynamicCheckBox.OnCheckedChangeListener<ExampleModel>() {
+    @Override
+    public void onCheckedChanged(ArrayList<ExampleModel> items) {
+        for (int i=0; i<items.size(); i++){
+            Log.d(TAG, "onCheckedChanged: "+items.get(i).getName());
+            Log.d(TAG, "onCheckedChanged: "+items.get(i).getAddress());
+        }
+    }
+
+    @Override
+    public void onCheckedShow(String clickedValue) {
+        Log.d(TAG, "onCheckedShow: "+clickedValue);
+    }
+});
+```
+
+[FullCode](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/MainActivity.java) **Preview** :
+
+| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg"/>| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example2.jpg"/> |<img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example3.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example4.jpg"/> |
+|:---|:---|:---|:---|
+| Preview `Single Object`| Output data `Single Object`| Preview `Model Pojo`| Output data `Model Pojo`|
+
+---
+
+```
+Copyright 2020 M. Fadli Zein
+```
