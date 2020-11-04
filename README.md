@@ -89,9 +89,8 @@ if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on 
     app:style="@style/checkBoxStyle"/>
 ```
 
-- **Content Item** there is 2 type list that you can sent to this `CheckBox`.
-
 #
+- **Content Item** there is 2 type list that you can sent to this `CheckBox`.
 **Type 1**
 ```java
 DynamicCheckBox dynamicCheckBox = findViewById(R.id.dc);
@@ -102,7 +101,8 @@ listString.add("Dua");
 listString.add("Tiga");
 listString.add("Empat");
 
-dynamicCheckBox.setItemList(listString).setOnCheckedChangeListener(new DynamicCheckBox.OnCheckedChangeListenerObject<String>() {
+dynamicCheckBox.setItemList(listString)
+.setOnCheckedChangeListener(new DynamicCheckBox.OnCheckedChangeListenerObject<String>() {
     @Override
     public void onCheckedChanged(ArrayList<String> items) {
         for (int i=0; i<items.size(); i++){
@@ -140,7 +140,7 @@ public class ExampleModel {
     }
 }
 ```
-Use your own model. And dont forget to declare your `model pojo` in `onCallBack` example `DynamicCheckBox.OnCheckedChangeListener<ExampleModel>`
+Use your own model. And dont forget to declare your `model pojo` in `onCallBack`. Example `DynamicCheckBox.OnCheckedChangeListener<ExampleModel>`
 ```java
 DynamicCheckBox dynamicCheckBox = findViewById(R.id.dc);
 
@@ -150,7 +150,8 @@ listObject.add(new ExampleModel(2, "Zein2", "Balbar2"));
 listObject.add(new ExampleModel(3, "Zein3", "Balbar3"));
 listObject.add(new ExampleModel(4, "Zein4", "Balbar4"));
 
-dynamicCheckBox.setItemList(listObject).setOnCheckedChangeListener(new DynamicCheckBox.OnCheckedChangeListener<ExampleModel>() {
+dynamicCheckBox.setItemList(listObject)
+.setOnCheckedChangeListener(new DynamicCheckBox.OnCheckedChangeListener<ExampleModel>() {
     @Override
     public void onCheckedChanged(ArrayList<ExampleModel> items) {
         for (int i=0; i<items.size(); i++){
