@@ -66,13 +66,13 @@ dependencies {
 
 - Widget on `xml`
 ```xml
-    <com.gzeinnumer.mylibdynamiccheckbox.DynamicCheckBox
-        android:id="@+id/dc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+<com.gzeinnumer.mylibdynamiccheckbox.DynamicCheckBox
+    android:id="@+id/dc"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
 ```
 
-if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on view, and make style on your `res->value`
+if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on view, and make style on your `res->value->style.xml`
 ```xml
 <resources xmlns:tools="http://schemas.android.com/tools">
 
