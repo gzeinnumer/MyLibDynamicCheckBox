@@ -14,7 +14,7 @@
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
-    <p>Simple way to select Item Single or Multi</p>
+    <p>Simple way to use Dynamic CheckBox</p>
 </div>
 
 ---
@@ -91,6 +91,7 @@ if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on 
 
 - **Content Item** there is 2 type of is that you can sent to this `CheckBox`.
 
+#
 **Type 1**
 ```java
 DynamicCheckBox dynamicCheckBox = findViewById(R.id.dc);
@@ -115,6 +116,7 @@ dynamicCheckBox.setItemList(listString).setOnCheckedChangeListener(new DynamicCh
     }
 });
 ```
+#
 **Type 2** for this type you should override function `toString()` in your `model pojo`
 ```java
 public class ExampleModel {
