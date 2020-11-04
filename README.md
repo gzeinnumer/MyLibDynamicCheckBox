@@ -1,6 +1,6 @@
 <h1 align="center">
-| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example3.jpg" width="300"/> |
-|:---|:---|
+<img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg" width="300"/> <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example3.jpg" width="300"/>
+
 </h1>
 
 <h1 align="center">
