@@ -38,7 +38,10 @@ public class ExampleModel {
 
     @Override
     public String toString() {
-        return "name='" + name + '\'' +
-                ", address='" + address;
+        return "ExampleModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

@@ -81,6 +81,11 @@ if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on 
     </style>
 </resources>
 ```
+```xml
+<com.gzeinnumer.mylibdynamiccheckbox.DynamicCheckBox
+    ...
+    app:style="@style/checkBoxStyle"/>
+```
 
 - **Content Item** there is 2 type of is that you can sent to this `CheckBox`.
 
@@ -131,7 +136,7 @@ public class ExampleModel {
     }
 }
 ```
-Use your own model. And dont forget to declare your `model pojo` `onCallBack` example `DynamicCheckBox.OnCheckedChangeListener<ExampleModel>`
+Use your own model. And dont forget to declare your `model pojo` in `onCallBack` example `DynamicCheckBox.OnCheckedChangeListener<ExampleModel>`
 ```java
 DynamicCheckBox dynamicCheckBox = findViewById(R.id.dc);
 
@@ -162,8 +167,14 @@ dynamicCheckBox.setItemList(listObject).setOnCheckedChangeListener(new DynamicCh
 | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg"/>| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example3.jpg"/> |
 |:---|:---|
 | Preview `Single Object`| Preview `Model Pojo`|
-| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example2.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example4.jpg"/> |
-| Output data `Single Object`| Output data `Model Pojo`|
+
+| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example2.jpg"/> |
+|:---|
+| Output data `Single Object`|
+
+| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example4.jpg"/> |
+|:---|
+|  Output data `Model Pojo`|
 
 ---
 
