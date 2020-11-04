@@ -64,7 +64,7 @@ public class DynamicCheckBox extends LinearLayout {
         for (int i = 0; i < items.size(); i++) {
             final CheckBox checkBox = new CheckBox(_context);
             checkBox.setTextAppearance(_context, _cbStyle);
-            checkBox.setText(items.get(i).toString());
+            checkBox.setText(String.valueOf(items.get(i).toString()));
             checkBox.setId(i);
 
             final int finalI = i;
