@@ -89,7 +89,7 @@ if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on 
     app:style="@style/checkBoxStyle"/>
 ```
 
-- **Content Item** there is 2 type of is that you can sent to this `CheckBox`.
+- **Content Item** there is 2 type list that you can sent to this `CheckBox`.
 
 #
 **Type 1**
