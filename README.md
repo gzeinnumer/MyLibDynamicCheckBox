@@ -159,9 +159,11 @@ dynamicCheckBox.setItemList(listObject).setOnCheckedChangeListener(new DynamicCh
 
 [FullCode](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/MainActivity.java) **Preview** :
 
-| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg"/>| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example2.jpg"/> |<img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example3.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example4.jpg"/> |
-|:---|:---|:---|:---|
-| Preview `Single Object`| Output data `Single Object`| Preview `Model Pojo`| Output data `Model Pojo`|
+| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg"/>| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example3.jpg"/> |
+|:---|:---|
+| Preview `Single Object`| Preview `Model Pojo`|
+| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example2.jpg"/> | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example4.jpg"/> |
+| Output data `Single Object`| Output data `Model Pojo`|
 
 ---
 
