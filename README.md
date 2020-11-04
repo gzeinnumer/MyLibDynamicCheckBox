@@ -164,7 +164,9 @@ dynamicCheckBox.setItemList(listObject).setOnCheckedChangeListener(new DynamicCh
 });
 ```
 
-[FullCode](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/MainActivity.java) **Preview** :
+FullCode [MainActivity](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/MainActivity.java)[ExampleModel](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/ExampleModel.java) [XML](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/res/layout/activity_main.xml)
+
+**Preview** :
 
 | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg"/>| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example3.jpg"/> |
 |:---|:---|
