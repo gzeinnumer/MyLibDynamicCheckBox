@@ -1,4 +1,4 @@
-| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example2.jpg" width="300"/> |
+| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg" width="300"/> | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example3.jpg" width="300"/> |
 |:---|:---|
 
 <h1 align="center">
@@ -69,8 +69,7 @@ dependencies {
     <com.gzeinnumer.mylibdynamiccheckbox.DynamicCheckBox
         android:id="@+id/dc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:style="@style/checkBoxStyle"/>
+        android:layout_height="wrap_content"/>
 ```
 
 if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on view, and make style on your `res->value`
