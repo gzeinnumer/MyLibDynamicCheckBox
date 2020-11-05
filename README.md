@@ -19,38 +19,30 @@
 
 ---
 
-### Feature List
-- [x] [Dynamic CheckBox](#DynamicCheckBox)
-
----
-
-### Tech stack and 3rd library
-- Material.io ([docs](https://material.io/develop/android/docs/getting-started))
-
----
-
 ## Download
-Minimum Android SDK Version 21
-
-#### Gradle
-**Step 1.** add maven `jitpack.io` to your `build.gradle` (Project) :
+Add maven `jitpack.io` and `dependencies` in `build.gradle (Project)` :
 ```gradle
+// build.gradle project
 allprojects {
   repositories {
-    google()
-    jcenter()
+    ...
     maven { url 'https://jitpack.io' }
   }
 }
-```
 
-**Step 2.** add dependensi to your `build.gradle` (Module) :
-```gradle
+// build.gradle app/module
 dependencies {
-  implementation 'com.github.gzeinnumer:MyLibDynamicCheckBox:versi'
+  ...
+  implementation 'com.github.gzeinnumer:MyLibDynamicCheckBox:version'
   implementation 'com.google.android.material:material:1.2.0'
 }
 ```
+
+## Feature List
+- [x] [Dynamic CheckBox](#DynamicCheckBox)
+
+## Tech stack and 3rd library
+- Material.io ([docs](https://material.io/develop/android/docs/getting-started))
 
 ---
 
@@ -64,7 +56,7 @@ dependencies {
 
 ---
 
-### DynamicCheckBox
+## DynamicCheckBox
 
 - Widget on `xml`
 ```xml
@@ -91,6 +83,7 @@ if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on 
 
 #
 - **Content Item** there is 2 type list that you can sent to this `CheckBox`.
+
 **Type 1**
 ```java
 DynamicCheckBox dynamicCheckBox = findViewById(R.id.dc);
