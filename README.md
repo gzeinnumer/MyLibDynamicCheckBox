@@ -71,6 +71,7 @@ if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on 
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="checkBoxStyle" parent="Base.Theme.AppCompat">
+        <item name="android:orientation">horizontal</item>
         <item name="android:textColor">#FFE500</item>
     </style>
 </resources>
