@@ -161,7 +161,6 @@ dynamicCheckBox.setItemList(listObject)
 });
 ```
 #
-**FullCode [MainActivity](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/MainActivity.java) & [ExampleModel](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/ExampleModel.java) & [XML](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/res/layout/activity_main.xml)**
 
 **Preview** :
 
@@ -176,6 +175,10 @@ dynamicCheckBox.setItemList(listObject)
 | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example4.jpg"/> |
 |:---|
 |  Output data `Model Pojo`|
+
+---
+
+**FullCode [MainActivity](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/MainActivity.java) & [ExampleModel](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/ExampleModel.java) & [XML](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/res/layout/activity_main.xml)**
 
 ---
 
