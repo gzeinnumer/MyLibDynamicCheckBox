@@ -52,7 +52,6 @@ public class DynamicCheckBox extends LinearLayout {
     }
 
     private <T> void initView(List<T> items) {
-        LinearLayout layout = new LinearLayout(_context);
         LinearLayout linearLayout = new LinearLayout(_context);
         linearLayout.setOrientation(VERTICAL);
 
