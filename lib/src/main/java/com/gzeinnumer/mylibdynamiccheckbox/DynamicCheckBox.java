@@ -16,6 +16,7 @@ public class DynamicCheckBox extends LinearLayout {
     private final Context _context;
     private final AttributeSet _attrs;
     private int _cbStyle = R.style.def_checkBoxStyle;
+    private int _orientation = VERTICAL;
 
     private final ArrayList<Object> sendArray = new ArrayList<>();
 
@@ -29,8 +30,6 @@ public class DynamicCheckBox extends LinearLayout {
         super(context, attrs);
         this._context = context;
         this._attrs = attrs;
-
-        setOrientation(VERTICAL);
 
         // Set Layout
         initView(sendArray);
@@ -52,13 +51,19 @@ public class DynamicCheckBox extends LinearLayout {
     }
 
     private <T> void initView(List<T> items) {
-        LinearLayout linearLayout = new LinearLayout(_context);
-        linearLayout.setOrientation(VERTICAL);
-
         TypedArray attributes = _context.obtainStyledAttributes(_attrs, R.styleable.DynamicCheckBox);
+
+        if (attributes.getInt(R.styleable.DynamicCheckBox_orientation, 1) == 0)
+            _orientation = HORIZONTAL;
+
+        setOrientation(_orientation);
+
+        LinearLayout linearLayout = new LinearLayout(_context);
+        linearLayout.setOrientation(_orientation);
 
         CheckBox checkBoxPreview = new CheckBox(_context);
         checkBoxPreview.setId(View.generateViewId());
+        checkBoxPreview.setText("Dynamic CheckBox");
         if (items.isEmpty()) {
             addView(checkBoxPreview);
         } else {
