@@ -78,7 +78,7 @@ if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on 
 ```xml
 <com.gzeinnumer.mylibdynamiccheckbox.DynamicCheckBox
     ...
-    app:orientation="vertical"
+    app:orientation="horizontal"
     app:style="@style/checkBoxStyle"/>
 ```
 
