@@ -12,9 +12,7 @@
         android:id="@+id/dc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:style="@style/checkBoxStyle"
         />
-<!--        app:orientation="vertical"-->
-<!--        />-->
-<!--        app:style="@style/checkBoxStyle" />-->
 
 </LinearLayout>

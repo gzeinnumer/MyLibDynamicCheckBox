@@ -16,6 +16,5 @@
 
     <style name="checkBoxStyle" parent="Base.Theme.AppCompat">
         <item name="android:textColor">#FFE500</item>
-        <item name="android:orientation">horizontal</item>
     </style>
 </resources>
