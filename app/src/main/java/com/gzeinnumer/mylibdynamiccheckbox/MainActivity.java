@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
         dynamicCheckBox = findViewById(R.id.dc);
 
-//        sample1();
-        sample2();
+        sample1();
+//        sample2();
     }
 
     private void sample1() {

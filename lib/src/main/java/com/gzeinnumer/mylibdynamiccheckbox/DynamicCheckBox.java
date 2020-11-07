@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -14,9 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DynamicCheckBox extends LinearLayout {
-    private Context _context;
-    private AttributeSet _attrs;
+    private final Context _context;
+    private final AttributeSet _attrs;
     private int _cbStyle = R.style.def_checkBoxStyle;
+    private int _orientation = VERTICAL;
 
     private final ArrayList<Object> sendArray = new ArrayList<>();
 
@@ -31,7 +31,8 @@ public class DynamicCheckBox extends LinearLayout {
         this._context = context;
         this._attrs = attrs;
 
-        initView(View.VISIBLE);
+        // Set Layout
+        initView(sendArray);
     }
 
     public interface OnCheckedChangeListener<T> {
@@ -50,36 +51,45 @@ public class DynamicCheckBox extends LinearLayout {
     }
 
     private <T> void initView(List<T> items) {
-        initView(GONE);
-
-        inflate(_context, R.layout.dynamic_check_box, this);
-
-        LinearLayout linearLayout = findViewById(R.id.parent);
-
         TypedArray attributes = _context.obtainStyledAttributes(_attrs, R.styleable.DynamicCheckBox);
 
-        if (attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1) != -1)
-            _cbStyle = attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1);
+        if (attributes.getInt(R.styleable.DynamicCheckBox_orientation, 1) == 0)
+            _orientation = HORIZONTAL;
 
-        for (int i = 0; i < items.size(); i++) {
-            final CheckBox checkBox = new CheckBox(_context);
-            checkBox.setTextAppearance(_context, _cbStyle);
-            checkBox.setText(String.valueOf(items.get(i).toString()));
-            checkBox.setId(i);
+        setOrientation(_orientation);
 
-            final int finalI = i;
-            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        LinearLayout linearLayout = new LinearLayout(_context);
+        linearLayout.setOrientation(_orientation);
+
+        CheckBox checkBoxPreview = new CheckBox(_context);
+        checkBoxPreview.setId(View.generateViewId());
+        checkBoxPreview.setText("Dynamic CheckBox");
+        if (items.isEmpty()) {
+            addView(checkBoxPreview);
+        } else {
+            removeViewAt(0);
+            if (attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1) != -1)
+                _cbStyle = attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1);
+
+            // Add Item Set User
+            for (int i = 0; i < items.size(); i++) {
+                final CheckBox checkBox = new CheckBox(_context);
+                checkBox.setTextAppearance(_context, _cbStyle);
+                checkBox.setText(items.get(i).toString());
+                checkBox.setId(i);
+
+                final int finalI = i;
+                checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                     if (onCheckedChangeListener != null) {
                         addToArray(items.get(finalI), isChecked);
                     }
-                }
-            });
-            linearLayout.addView(checkBox);
-        }
+                });
+                linearLayout.addView(checkBox);
+            }
 
-        attributes.recycle();
+            attributes.recycle();
+            addView(linearLayout);
+        }
     }
 
     private <T> void addToArray(T data, boolean isAdd) {
@@ -102,18 +112,8 @@ public class DynamicCheckBox extends LinearLayout {
 
     }
 
-    private void initView(int isVisible) {
-        inflate(_context, R.layout.dynamic_check_box, this);
-
-        TypedArray attributes = _context.obtainStyledAttributes(_attrs, R.styleable.DynamicCheckBox);
-
-        CheckBox checkBox = findViewById(R.id.dummy);
-        checkBox.setVisibility(isVisible);
-
-        if (attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1) != -1)
-            _cbStyle = attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1);
-        checkBox.setTextAppearance(_context, _cbStyle);
-
-        attributes.recycle();
+    @Override
+    protected void removeDetachedView(View child, boolean animate) {
+        super.removeDetachedView(child, false);
     }
 }
