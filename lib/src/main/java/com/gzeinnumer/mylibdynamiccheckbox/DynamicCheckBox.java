@@ -58,18 +58,20 @@ public class DynamicCheckBox extends LinearLayout {
 
         setOrientation(_orientation);
 
+        if (attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1) != -1)
+            _cbStyle = attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1);
+
         LinearLayout linearLayout = new LinearLayout(_context);
         linearLayout.setOrientation(_orientation);
 
         CheckBox checkBoxPreview = new CheckBox(_context);
         checkBoxPreview.setId(View.generateViewId());
         checkBoxPreview.setText("Dynamic CheckBox");
+        checkBoxPreview.setTextAppearance(_context, _cbStyle);
         if (items.isEmpty()) {
             addView(checkBoxPreview);
         } else {
             removeViewAt(0);
-            if (attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1) != -1)
-                _cbStyle = attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1);
 
             // Add Item Set User
             for (int i = 0; i < items.size(); i++) {
