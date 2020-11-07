@@ -34,25 +34,11 @@ allprojects {
 dependencies {
   ...
   implementation 'com.github.gzeinnumer:MyLibDynamicCheckBox:version'
-  implementation 'com.google.android.material:material:1.2.0'
 }
 ```
 
 ## Feature List
 - [x] [Dynamic CheckBox](#DynamicCheckBox)
-
-## Tech stack and 3rd library
-- Material.io ([docs](https://material.io/develop/android/docs/getting-started))
-
----
-
-**First Step**. Use `MaterialComponents` in your style :
-
-```xml
-<style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-    <!-- Customize your theme here. -->
-</style>
-```
 
 ---
 

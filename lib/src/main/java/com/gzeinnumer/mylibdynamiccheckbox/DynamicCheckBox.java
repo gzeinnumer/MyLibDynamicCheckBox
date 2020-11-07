@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -81,9 +82,12 @@ public class DynamicCheckBox extends LinearLayout {
                 checkBox.setId(i);
 
                 final int finalI = i;
-                checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    if (onCheckedChangeListener != null) {
-                        addToArray(items.get(finalI), isChecked);
+                checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (onCheckedChangeListener != null) {
+                            addToArray(items.get(finalI), isChecked);
+                        }
                     }
                 });
                 linearLayout.addView(checkBox);
