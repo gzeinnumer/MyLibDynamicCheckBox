@@ -3,9 +3,12 @@ package com.gzeinnumer.mylibdynamiccheckbox;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+
 import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +30,7 @@ public class DynamicCheckBox extends LinearLayout {
         this._context = context;
         this._attrs = attrs;
 
-        // Add Firs
-        sendArray.add("DynamicCheckBox");
+        setOrientation(VERTICAL);
 
         // Set Layout
         initView(sendArray);
@@ -50,35 +52,40 @@ public class DynamicCheckBox extends LinearLayout {
     }
 
     private <T> void initView(List<T> items) {
+        LinearLayout layout = new LinearLayout(_context);
         LinearLayout linearLayout = new LinearLayout(_context);
         linearLayout.setOrientation(VERTICAL);
 
         TypedArray attributes = _context.obtainStyledAttributes(_attrs, R.styleable.DynamicCheckBox);
 
-        if (attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1) != -1)
-            _cbStyle = attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1);
+        CheckBox checkBoxPreview = new CheckBox(_context);
+        checkBoxPreview.setId(View.generateViewId());
+        if (items.isEmpty()) {
+            addView(checkBoxPreview);
+        } else {
+            removeViewAt(0);
+            if (attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1) != -1)
+                _cbStyle = attributes.getResourceId(R.styleable.DynamicCheckBox_style, -1);
 
-        // Remove Firs Item
-        sendArray.remove("DynamicCheckBox");
+            // Add Item Set User
+            for (int i = 0; i < items.size(); i++) {
+                final CheckBox checkBox = new CheckBox(_context);
+                checkBox.setTextAppearance(_context, _cbStyle);
+                checkBox.setText(items.get(i).toString());
+                checkBox.setId(i);
 
-        // Add Item Set User
-        for (int i = 0; i < items.size(); i++) {
-            final CheckBox checkBox = new CheckBox(_context);
-            checkBox.setTextAppearance(_context, _cbStyle);
-            checkBox.setText(items.get(i).toString());
-            checkBox.setId(i);
+                final int finalI = i;
+                checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if (onCheckedChangeListener != null) {
+                        addToArray(items.get(finalI), isChecked);
+                    }
+                });
+                linearLayout.addView(checkBox);
+            }
 
-            final int finalI = i;
-            checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                if (onCheckedChangeListener != null) {
-                    addToArray(items.get(finalI), isChecked);
-                }
-            });
-            linearLayout.addView(checkBox);
+            attributes.recycle();
+            addView(linearLayout);
         }
-
-        attributes.recycle();
-        addView(linearLayout);
     }
 
     private <T> void addToArray(T data, boolean isAdd) {
@@ -99,5 +106,10 @@ public class DynamicCheckBox extends LinearLayout {
         else
             onCheckedChangeListener.onCheckedShow("");
 
+    }
+
+    @Override
+    protected void removeDetachedView(View child, boolean animate) {
+        super.removeDetachedView(child, false);
     }
 }
