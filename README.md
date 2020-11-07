@@ -4,7 +4,7 @@
 </h1>
 
 <h1 align="center">
-  MyLibDialogSearchView - Easy Drop Down
+  MyLibDynamicCheckBox - Easy CheckBox Dynamic
 </h1>
 
 <div align="center">
