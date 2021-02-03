@@ -11,7 +11,7 @@
     <a><img src="https://img.shields.io/badge/Version-1.0.3-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
-    <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Kotlin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
     <p>Simple way to use Dynamic CheckBox</p>
@@ -82,19 +82,19 @@ listString.add("Tiga");
 listString.add("Empat");
 
 dynamicCheckBox.setItemList(listString)
-.setOnCheckedChangeListener(new DynamicCheckBox.OnCheckedChangeListenerObject<String>() {
-    @Override
-    public void onCheckedChanged(ArrayList<String> items) {
-        for (int i=0; i<items.size(); i++){
-            Log.d(TAG, "onCheckedChanged: "+items.get(i));
+    .setOnCheckedChangeListener(new DynamicCheckBox.OnCheckedChangeListener<String>() {
+        @Override
+        public void onCheckedChanged(ArrayList<String> items) {
+            for (int i=0; i<items.size(); i++){
+                Log.d(TAG, "onCheckedChanged: "+items.get(i));
+            }
         }
-    }
 
-    @Override
-    public void onCheckedShow(String clickedValue) {
-        Log.d(TAG, "onCheckedShow: "+clickedValue);
-    }
-});
+        @Override
+        public void onCheckedShow(String clickedValue) {
+            Log.d(TAG, "onCheckedShow: "+clickedValue);
+        }
+    });
 ```
 #
 **Type 2** for this type you should override function `toString()` in your `model pojo`
@@ -131,20 +131,20 @@ listObject.add(new ExampleModel(3, "Zein3", "Balbar3"));
 listObject.add(new ExampleModel(4, "Zein4", "Balbar4"));
 
 dynamicCheckBox.setItemList(listObject)
-.setOnCheckedChangeListener(new DynamicCheckBox.OnCheckedChangeListener<ExampleModel>() {
-    @Override
-    public void onCheckedChanged(ArrayList<ExampleModel> items) {
-        for (int i=0; i<items.size(); i++){
-            Log.d(TAG, "onCheckedChanged: "+items.get(i).getName());
-            Log.d(TAG, "onCheckedChanged: "+items.get(i).getAddress());
+    .setOnCheckedChangeListener(new DynamicCheckBox.OnCheckedChangeListener<ExampleModel>() {
+        @Override
+        public void onCheckedChanged(ArrayList<ExampleModel> items) {
+            for (int i=0; i<items.size(); i++){
+                Log.d(TAG, "onCheckedChanged: "+items.get(i).getName());
+                Log.d(TAG, "onCheckedChanged: "+items.get(i).getAddress());
+            }
         }
-    }
 
-    @Override
-    public void onCheckedShow(String clickedValue) {
-        Log.d(TAG, "onCheckedShow: "+clickedValue);
-    }
-});
+        @Override
+        public void onCheckedShow(String clickedValue) {
+            Log.d(TAG, "onCheckedShow: "+clickedValue);
+        }
+    });
 ```
 #
 
@@ -166,6 +166,8 @@ dynamicCheckBox.setItemList(listObject)
 
 **FullCode [MainActivity](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/MainActivity.java) & [ExampleModel](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/ExampleModel.java) & [XML](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/res/layout/activity_main.xml)**
 
+[Sample Code And App](https://github.com/gzeinnumer/MyLibDynamicCheckBoxExample)
+
 ---
 
 ### Version
@@ -175,7 +177,7 @@ dynamicCheckBox.setItemList(listObject)
 ---
 
 ### Contribution
-You can sent your constibution to `branche` `open-pull`.
+You can sent your constibution to `branch` `open-pull`.
 
 ---
 
