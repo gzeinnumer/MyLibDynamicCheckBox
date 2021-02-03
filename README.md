@@ -18,8 +18,17 @@
 </div>
 
 ---
+# Content List
+* [Download](#download)
+* [Feature List](#feature-list)
+* [Usage](#usage)
+* [Example Code/App](#example-codeapp)
+* [Version](#version)
+* [Contribution](#contribution)
 
-## Download
+---
+# Download
+
 Add maven `jitpack.io` and `dependencies` in `build.gradle (Project)` :
 ```gradle
 // build.gradle project
@@ -37,12 +46,14 @@ dependencies {
 }
 ```
 
-## Feature List
+---
+# Feature List
 - [x] [Dynamic CheckBox](#DynamicCheckBox)
 
 ---
+# Usage
 
-## DynamicCheckBox
+### DynamicCheckBox
 
 - Widget on `xml`
 ```xml
@@ -68,7 +79,6 @@ if you want to custom your `CheckBox` use `app:style="@style/checkBoxStyle"` on 
     app:style="@style/checkBoxStyle"/>
 ```
 
-#
 - **Content Item** there is 2 type list that you can sent to this `CheckBox`.
 
 **Type 1**
@@ -96,7 +106,7 @@ dynamicCheckBox.setItemList(listString)
         }
     });
 ```
-#
+
 **Type 2** for this type you should override function `toString()` in your `model pojo`
 ```java
 public class ExampleModel {
@@ -120,7 +130,7 @@ public class ExampleModel {
     }
 }
 ```
-Use your own model. And dont forget to declare your `model pojo` in `onCallBack`. Example `DynamicCheckBox.OnCheckedChangeListener<ExampleModel>`
+Use your own model and dont forget to declare your `model pojo` in `onCallBack`. Example `DynamicCheckBox.OnCheckedChangeListener<ExampleModel>`
 ```java
 DynamicCheckBox dynamicCheckBox = findViewById(R.id.dc);
 
@@ -147,7 +157,6 @@ dynamicCheckBox.setItemList(listObject)
     });
 ```
 #
-
 **Preview** :
 
 | <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example1.jpg"/>| <img src="https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/preview/example3.jpg"/> |
@@ -163,20 +172,21 @@ dynamicCheckBox.setItemList(listObject)
 |  Output data `Model Pojo`|
 
 ---
+# Example Code/App
 
 **FullCode [MainActivity](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/MainActivity.java) & [ExampleModel](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/java/com/gzeinnumer/mylibdynamiccheckbox/ExampleModel.java) & [XML](https://github.com/gzeinnumer/MyLibDynamicCheckBox/blob/master/app/src/main/res/layout/activity_main.xml)**
 
 [Sample Code And App](https://github.com/gzeinnumer/MyLibDynamicCheckBoxExample)
 
 ---
+# Version
 
-### Version
 - **1.0.3**
   - First Release
 
 ---
+# Contribution
 
-### Contribution
 You can sent your constibution to `branch` `open-pull`.
 
 ---
